@@ -47,3 +47,12 @@ double peek() {
     }
     return data[top];
 }
+
+int main() {
+    char command[20];
+
+    printf("=== Reverse Polish Calculator ===\n");
+    printf("Commands: ? (input), +, -, *, /, = (result), q (quit)\n");
+
+
+}
