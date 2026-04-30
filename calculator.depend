@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1777522296 source:c:\users\asus\documents\c projects\polish-cal\reverse-polish-calculator\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

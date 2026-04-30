@@ -8,17 +8,17 @@
 double data[MAX_SIZE];
 int top = -1;
 
-/* check is stack empty */
+/* ================check is stack empty=============== */
 int isEmpty() {
     return top == -1;
 }
 
-/* check is stack full */
+/*====================== check is stack full================================== */
 int isFull() {
     return top == MAX_SIZE - 1;
 }
 
-/* Add  new value to the top of the stack */
+/* ==========Add  new value to the top of the stack =====================*/
 void push(double value) {
     if (isFull()) {
         printf("Error: Stack is full!\n");
@@ -48,6 +48,7 @@ double peek() {
     return data[top];
 }
 
+/* ===============================================main function=========================================== */
 int main() {
     char command[20];
 
@@ -77,7 +78,7 @@ int main() {
             printf("  Result = %.2f\n", peek());
         }
 
-        /* Basic Arithmetic Operations */
+        /* ========================Basic Arithmetic Operations =====================*/
         else if (strcmp(command, "+") == 0) {
             double b = pop();
             double a = pop();
@@ -96,6 +97,7 @@ int main() {
             push(a * b);
             printf("  %.2f * %.2f = %.2f\n", a, b, a * b);
         }
+        /*================================Zero Division error checking=========================*/
         else if (strcmp(command, "/") == 0) {
             double b = pop();
             double a = pop();
@@ -109,7 +111,7 @@ int main() {
             }
         }
 
-        /* Error handling for invalid commands */
+        /* ==================Error handling for invalid commands======================= */
         else {
             printf("  Unknown command: %s\n", command);
         }
