@@ -53,6 +53,69 @@ int main() {
 
     printf("=== Reverse Polish Calculator ===\n");
     printf("Commands: ? (input), +, -, *, /, = (result), q (quit)\n");
+    while (1) {
+        printf("> ");
+        scanf("%s", command);
+
+        /* Exit condition */
+        if (strcmp(command, "q") == 0 || strcmp(command, "quit") == 0) {
+            printf("Exiting calculator.\n");
+            break;
+        }
+
+        /* Command to input a number */
+        else if (strcmp(command, "?") == 0) {
+            double num;
+            printf("  Enter number: ");
+            scanf("%lf", &num);
+            push(num);
+            printf("  Pushed: %.2f\n", num);
+        }
+
+        /* Command to display the current top value */
+        else if (strcmp(command, "=") == 0) {
+            printf("  Result = %.2f\n", peek());
+        }
+
+        /* Basic Arithmetic Operations */
+        else if (strcmp(command, "+") == 0) {
+            double b = pop();
+            double a = pop();
+            push(a + b);
+            printf("  %.2f + %.2f = %.2f\n", a, b, a + b);
+        }
+        else if (strcmp(command, "-") == 0) {
+            double b = pop();
+            double a = pop();
+            push(a - b);
+            printf("  %.2f - %.2f = %.2f\n", a, b, a - b);
+        }
+        else if (strcmp(command, "*") == 0) {
+            double b = pop();
+            double a = pop();
+            push(a * b);
+            printf("  %.2f * %.2f = %.2f\n", a, b, a * b);
+        }
+        else if (strcmp(command, "/") == 0) {
+            double b = pop();
+            double a = pop();
+            if (b == 0) {
+                printf("  Error: Cannot divide by zero!\n");
+                push(a);
+                push(b);
+            } else {
+                push(a / b);
+                printf("  %.2f / %.2f = %.2f\n", a, b, a / b);
+            }
+        }
+
+        /* Error handling for invalid commands */
+        else {
+            printf("  Unknown command: %s\n", command);
+        }
+    }
+
+    return 0;
 
 
 }
